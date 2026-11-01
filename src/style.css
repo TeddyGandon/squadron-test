@@ -1,0 +1,36 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #f9fafb;
+  background: #030712;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+  margin: 0;
+}
+
+.page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  overflow: auto;
+  padding: 24px;
+}
+
+.game-container {
+  width: 1024px;
+  height: 768px;
+  flex: none;
+}
+
+.game-container canvas {
+  display: block;
+}
