@@ -15,7 +15,7 @@ Create a production build with `npm run build`. Run the starter test with `npm t
 
 ## Game viewport
 
-The game canvas is **1024 × 768 pixels** and stays that size. Phaser uses `Phaser.Scale.NONE`, so the canvas is not resized to match the browser window. The page centers the fixed-size game; smaller windows may require scrolling rather than shrinking the game.
+The game canvas is **1024 × 768 pixels** and stays that size. Phaser uses `Phaser.Scale.NONE`, so the canvas is not resized to match the browser window. The page centers the fixed-size game without horizontal padding that could offset it; smaller windows may require horizontal scrolling rather than shrinking the game.
 
 ## Source layout
 
