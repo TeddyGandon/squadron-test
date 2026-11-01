@@ -1,0 +1,43 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #f4f7ff;
+  background: #0b1020;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-width: 1024px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: max(100vh, 768px);
+}
+
+.game-page {
+  display: grid;
+  min-width: 1024px;
+  min-height: 100vh;
+  place-items: center;
+  overflow: auto;
+}
+
+.game-container {
+  width: 1024px;
+  height: 768px;
+  flex: none;
+}
+
+.game-container canvas {
+  display: block;
+  width: 1024px;
+  height: 768px;
+}
