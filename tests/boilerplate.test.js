@@ -27,8 +27,9 @@ test('the browser entry point mounts the game through Vue', () => {
   const entry = readFileSync(new URL('../src/main.js', import.meta.url), 'utf8')
 
   assert.match(app, /from ['"]vue['"]/)
-  assert.match(app, /new Phaser\.Game/)
-  assert.match(entry, /createApp\(App\)\.mount/)
+  assert.match(app, /ref="gameHost"/)
+  assert.match(app, /new Phaser\.Game\(createGameConfig\(gameHost\.value\)\)/)
+  assert.match(entry, /createApp\(App\)\.mount\(['"]#app['"]\)/)
 })
 
 test('the docs directory is initialized', () => {
