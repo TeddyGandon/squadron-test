@@ -1,0 +1,21 @@
+{
+  "name": "squadron",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "test": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "phaser": "^3.90.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vue-tsc": "^3.3.14"
+  }
+}
