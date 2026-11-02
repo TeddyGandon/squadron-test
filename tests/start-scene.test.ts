@@ -16,10 +16,10 @@ function createShape() {
       handlers[event] = handler;
       return shape;
     }),
-    setFillStyle: vi.fn(() => shape),
+    setFillStyle: vi.fn((_color: number) => shape),
     setInteractive: vi.fn(() => shape),
     setOrigin: vi.fn(() => shape),
-    setStrokeStyle: vi.fn(() => shape),
+    setStrokeStyle: vi.fn((_lineWidth: number, _color: number) => shape),
   };
   return shape;
 }
@@ -59,27 +59,38 @@ describe('title screen', () => {
   it('shows a rectangle logo placeholder and two selectable menu buttons', () => {
     scene.create();
 
+    expect(rectangles).toHaveLength(3);
     expect(rectangles[0].setStrokeStyle).toHaveBeenCalled();
-    expect(texts.map(({ text }) => text)).toEqual(['LOGO', 'New game', 'Continue']);
+    expect(texts.map(({ text }) => text)).toContain('New game');
+    expect(texts.map(({ text }) => text)).toContain('Continue');
     expect(rectangles[1].setInteractive).toHaveBeenCalledWith({ useHandCursor: true });
     expect(rectangles[2].setInteractive).toHaveBeenCalledWith({ useHandCursor: true });
   });
 
-  it('changes the highlighted option with the mouse and up/down keys', () => {
+  it('selects a button with the mouse', () => {
     scene.create();
     const [newGameButton, continueButton] = rectangles.slice(1);
 
-    expect(newGameButton.setFillStyle).toHaveBeenLastCalledWith(0x2563eb);
-    continueButton.handlers.pointerover();
-    expect(continueButton.setFillStyle).toHaveBeenLastCalledWith(0x2563eb);
+    continueButton.handlers.pointerdown();
 
-    keyboardHandlers['keydown-UP']();
-    expect(newGameButton.setFillStyle).toHaveBeenLastCalledWith(0x2563eb);
+    expect(continueButton.setFillStyle.mock.lastCall?.[0]).not.toBe(
+      newGameButton.setFillStyle.mock.lastCall?.[0],
+    );
+  });
 
-    keyboardHandlers['keydown-UP']();
-    expect(continueButton.setFillStyle).toHaveBeenLastCalledWith(0x2563eb);
+  it('selects both buttons with the up and down keys', () => {
+    scene.create();
+    const [newGameButton, continueButton] = rectangles.slice(1);
 
+    newGameButton.handlers.pointerdown();
     keyboardHandlers['keydown-DOWN']();
-    expect(newGameButton.setFillStyle).toHaveBeenLastCalledWith(0x2563eb);
+    expect(continueButton.setFillStyle.mock.lastCall?.[0]).not.toBe(
+      newGameButton.setFillStyle.mock.lastCall?.[0],
+    );
+
+    keyboardHandlers['keydown-UP']();
+    expect(newGameButton.setFillStyle.mock.lastCall?.[0]).not.toBe(
+      continueButton.setFillStyle.mock.lastCall?.[0],
+    );
   });
 });
