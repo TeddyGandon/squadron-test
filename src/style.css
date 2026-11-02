@@ -1,0 +1,39 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #f9fafb;
+  background: #030712;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  min-width: 1024px;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.page {
+  display: grid;
+  min-width: 1024px;
+  min-height: max(100vh, 768px);
+  place-items: center;
+}
+
+.game-container {
+  width: 1024px;
+  height: 768px;
+}
+
+.game-container canvas {
+  display: block;
+}
