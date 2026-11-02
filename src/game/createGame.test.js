@@ -6,7 +6,7 @@ import { dirname, resolve } from 'node:path';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
-async function readSource(path: string) {
+async function readSource(path) {
   return readFile(resolve(projectRoot, path), 'utf8');
 }
 

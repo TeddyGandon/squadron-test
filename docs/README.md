@@ -4,7 +4,7 @@ This project is a browser-based 2D game starter. Vue 3 provides the application 
 
 ## Requirements
 
-- Node.js 20.19+ or 22.12+
+- Node.js 18.x, 20.x, or 22+
 - npm
 
 ## Run locally
@@ -32,3 +32,9 @@ npm run preview
 ```
 
 The static production bundle is generated in `dist/`.
+
+## Tests
+
+```sh
+npm test
+```
