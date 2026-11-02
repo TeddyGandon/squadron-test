@@ -21,7 +21,11 @@ destroyed when it unmounts. Its Phaser canvas is configured to remain at a fixed
 **1024 × 768** pixels (`Phaser.Scale.NONE`); the page centers that fixed-size
 canvas and does not resize it with the browser window.
 
-The starter scene is `src/game/StartScene.js`. Add gameplay scenes there or
-create additional Phaser scenes and register them in the game configuration in
-`src/App.vue`. Vue is responsible for the page and lifecycle; Phaser renders
-and runs the game inside the `.game-container` element.
+The title screen is implemented in `src/game/StartScene.js`. It displays a
+rectangle logo placeholder and the **New game** and **Continue** menu options.
+Select an option by hovering over or clicking it, or use the up and down arrow
+keys to move the highlighted selection. The options are visual only and do not
+start gameplay. Add gameplay scenes there or create additional Phaser scenes
+and register them in the game configuration in `src/App.vue`. Vue is responsible
+for the page and lifecycle; Phaser renders and runs the game inside the
+`.game-container` element.
